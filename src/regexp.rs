@@ -15,6 +15,8 @@ pub trait RegExp: Sized {
   ///
   /// Returns `None` if the text does not match the regular expression.
   fn matches<'a>(&self, text: &'a str) -> Option<Vec<Option<&'a str>>>;
+
+  fn pattern_string(&self) -> String;
 }
 
 impl RegExp for regex::Regex {
@@ -36,5 +38,9 @@ impl RegExp for regex::Regex {
       .collect();
 
     Some(captures)
+  }
+
+  fn pattern_string(&self) -> String {
+    self.as_str().to_string()
   }
 }

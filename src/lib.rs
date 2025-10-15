@@ -10,9 +10,9 @@ mod component;
 mod constructor_parser;
 mod error;
 mod matcher;
-mod parser;
+pub mod parser;
 pub mod quirks;
-mod regexp;
+pub mod regexp;
 mod tokenizer;
 
 pub use error::Error;
